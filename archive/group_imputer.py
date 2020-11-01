@@ -54,34 +54,27 @@ class GroupImputer():
         # Getting a dictionary of means by column (used for imputation when a group is filled with NAs)
         self.col_means = df[self.imputed_columns].mean().to_dict()
         
-    def impute_column(self, column_name, data):
-        # Iteration over groups
-        for group in self.group_values:
-            # Imputation value selection
-            # If the group mean is null, then use the column mean
-            if self.group_means[column_name][group] == self.group_means[column_name][group]:
-                imputation_value = self.group_means[column_name][group]
-            else:
-                imputation_value = self.col_means[column_name]
-            # Filtering the data with pandas loc operator
-            data.loc[
-                # Filtering to a single group
-                (data[self.groupby_column]==group) & 
-                # Filtering to null values
-                (data[column_name]!=data[column_name]),
-                # Selecting the column
-                column_name
-            # Imputing the selection with the imputation value
-            ] = imputation_value
-        return data
-    
     def transform(self, data):
-        if isinstance(self.imputed_columns, str):
-            data = self.impute_column(column_name = self.imputed_columns, data = data)
-        else:
-            # Iteration over columns to impute
-            for imputed_column in self.imputed_columns:
-                data = self.impute_column(column_name = imputed_column, data = data)
+        # Iteration over columns to impute
+        for imputed_column in self.imputed_columns:
+            # Iteration over groups
+            for group in self.group_values:
+                # Imputation value selection
+                # If the group mean is null, then use the column mean
+                if self.group_means[imputed_column][group] == self.group_means[imputed_column][group]:
+                    imputation_value = self.group_means[imputed_column][group]
+                else:
+                    imputation_value = self.col_means[imputed_column]
+                # Filtering the data with pandas loc operator
+                data.loc[
+                    # Filtering to a single group
+                    (data[self.groupby_column]==group) & 
+                    # Filtering to null values
+                    (data[imputed_column]!=data[imputed_column]),
+                    # Selecting the column
+                    imputed_column
+                # Imputing the selection with the imputation value
+                ] = imputation_value
         return data
     
     def fit_transform(self,data,groupby_column,imputed_columns):
