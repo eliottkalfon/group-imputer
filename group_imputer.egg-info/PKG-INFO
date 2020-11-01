@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: group-imputer
-Version: 0.0.1
+Version: 0.0.2
 Summary: Null imputing utility - work in progress
 Home-page: https://github.com/eliottkalfon/group-imputer
 Author: Eliott Kalfon

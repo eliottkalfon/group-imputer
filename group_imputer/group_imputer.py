@@ -56,12 +56,12 @@ class GroupImputer():
         else:
             selected_columns = self.imputed_columns + [self.groupby_column]
         # Getting a dictionary of means by column/group
-        self.group_imputation_values = self.imputation_function(df[selected_columns].groupby(by=self.groupby_column)).to_dict()
+        self.group_imputation_values = self.imputation_function(data[selected_columns].groupby(by=self.groupby_column)).to_dict()
         # Getting a dictionary of means by column (used for imputation when a group is filled with NAs)
         if self._impcol_isstring:
-            self.col_imputation_values = {self.imputed_columns:self.imputation_function(df[self.imputed_columns])}
+            self.col_imputation_values = {self.imputed_columns:self.imputation_function(data[self.imputed_columns])}
         else:    
-            self.col_imputation_values = self.imputation_function(df[self.imputed_columns]).to_dict()
+            self.col_imputation_values = self.imputation_function(data[self.imputed_columns]).to_dict()
         
     def impute_column(self, column_name, data):
         # Iteration over groups

@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="group-imputer", # Replace with your own username
-    version="0.0.1",
+    version="0.0.2",
     author="Eliott Kalfon",
     author_email="eliott.kalfon@gmail.com",
     description="Null imputing utility - work in progress",
