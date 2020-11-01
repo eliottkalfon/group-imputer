@@ -3,15 +3,6 @@
 
 @author: eliott.kalfon
 
-To do
-- Accept np array as input
-- Deal with null column average
-- Use column indices and column names - check data types
-- Input as numpy array 
-- Different imputation strategies
-- Dual/multiplr group by
-- Custom imputation function with lambda expressions (start with mean and average)
-- list or single value for imputed columns (start with list)
 """
 
 import pandas as pd
