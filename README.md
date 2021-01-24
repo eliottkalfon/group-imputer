@@ -26,7 +26,7 @@ from group_imputer.group_imputer import GroupImputer
 
 # Using the group-imputer
 
-A basic example usage can be found in the ![example folder](https://github.com/eliottkalfon/group-imputer/tree/main/example).
+A basic example usage can be found in the [example folder](https://github.com/eliottkalfon/group-imputer/tree/main/example).
 
 ```python
 # Creating a GroupImputer object
