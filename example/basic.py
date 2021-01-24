@@ -23,7 +23,7 @@ print('\n')
 
 # Creating a GroupImputer object
 gi = GroupImputer(strategy = 'median')
-# Imputing values in column 1 and 2
+# Imputing values in column 1 and 2, using the "group" column
 gi.fit_transform(df,'group', ['column1', 'column2'])
 # Displaying results
 print('After imputation')

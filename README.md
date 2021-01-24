@@ -2,7 +2,7 @@
 
 # Description
 Null imputation utility filling null values with group specific aggregates (mean, median, min, custom value etc...). It is particularly useful in datasets with high cross-categorical variance, in which null imputation by null values would generate information loss.
-<br>It uses pandas dataframes in the back-end
+<br>It uses pandas dataframes in the back-end, and has the fit(), transform(), and fit_transform() methods - important to avoid information leak across the train/test separation.
 
 # Installation
 
@@ -24,6 +24,16 @@ import pandas as pd
 from group_imputer.group_imputer import GroupImputer
 ```
 
+# Using the group-imputer
+
+A basic example usage can be found in the ![example folder](https://github.com/eliottkalfon/group-imputer/tree/main/example).
+
+```python
+# Creating a GroupImputer object
+gi = GroupImputer(strategy = 'median')
+# Imputing values in column 1 and 2, using the "group" column
+gi.fit_transform(df,'group', ['column1', 'column2'])
+```
 
 # Credits
 
