@@ -1,7 +1,7 @@
 ![](https://github.com/eliottkalfon/group-imputer/blob/main/resources/logo.png)
 
 # Description
-Null imputation utility filling null values with group specific aggregates (mean, median, min, custom value etc...). It is particularly useful in datasets with high cross-categorical variance, in which null imputation by null values would generate information loss.
+Null imputation utility filling null values with group specific aggregates (mean, median, min, custom value etc...). It is particularly useful in datasets with high cross-categorical variance, in which null imputation by dataset aggregations would generate information loss.
 <br>It uses pandas dataframes in the back-end, and has the fit(), transform(), and fit_transform() methods - important to avoid information leak across the train/test separation.
 
 # Installation
